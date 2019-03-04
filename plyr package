@@ -1,0 +1,10 @@
+install.packages("plyr")
+library(plyr)
+x <- read.table("F:\\Rstudio\\#8\\Assignment 6 Dataset.txt", header = TRUE, sep = ",")
+y= ddply(x, "Sex", transform, Grade.Average= mean(Grade))
+y
+write.table(y,"Sorted_Average")
+write.table(y,"F:\\Rstudio\\#8\\Sorted_Average.csv",sep=",")
+newx = subset(x,grepl("[iI]",x$Name))
+write.table(newx,"F:\\Rstudio\\#8\\DataSubset.csv",sep=",")
+newx
